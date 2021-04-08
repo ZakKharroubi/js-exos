@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les bases de javascript</title>
+</head>
+
+<body>
+
+    <h1>LES BASES DE javascript</h1>
+    <script type="text/javascript">
+        "use strict"
+
+        let input = prompt("Veuillez saisir un nombre");
+        if (input < 10 || isNaN(input) || input > 100) {
+            alert("Un nombre entre 10 et 100 svp")
+            let input = prompt("Veuillez saisir un nombre");
+        } else {
+            for (let i = 0; i <= input; i++) {
+                if (i % 2 == 0) {
+                    console.log(i);
+                }
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

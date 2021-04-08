@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de rôle</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        "use strict"
+
+        function attack(player, damages) {
+            let i = 1;
+            while (adventurer.lifepoints > 0 && dungeonMaster.lifepoints > 0) {
+                if (i % 2 != 0) {
+                    player = dungeonMaster;
+                    damages = dungeonMaster.damages - adventurer.armor;
+                    if (dungeonMaster.damages < adventurer.armor) {
+                        damages = 0;
+                    }
+                    adventurer.lifepoints = adventurer.lifepoints - damages;
+                    console.log(`Le maître du Donjon inflige ${damages} points de dégâts à l'aventurier ! \n
+                    Il lui reste ${adventurer.lifepoints} points de vie !`)
+                    i++;
+                    if (adventurer.lifepoints <= 0) {
+                        console.log("Le maître du Donjon remporte le duel !")
+                    }
+                }
+                else {
+                    player = adventurer;
+                    damages = adventurer.damages - dungeonMaster.armor;
+                    if (adventurer.damages < dungeonMaster.armor) {
+                        damages = 0;
+                    }
+                    dungeonMaster.lifepoints = dungeonMaster.lifepoints - damages;
+                    console.log(`L'aventurier inflige ${damages} points de dégâts au maître du Donjon !\n
+                    Il lui reste ${dungeonMaster.lifepoints} points de vie !`)
+                    i++;
+                    if (dungeonMaster.lifepoints <= 0) {
+                        console.log("L'aventurier remporte le duel !")
+                    }
+                }
+            }
+        }
+        let adventurer = {
+            lifepoints: 100,
+            damages: "",
+            armor: ""
+        }
+        let weapons = {
+            wood: 2,
+            iron: 5,
+            magic: 10
+        }
+        let armors = {
+            wood: 1,
+            iron: 3,
+            magic: 5
+        }
+        let dungeonMaster = {
+            lifepoints: 150,
+            damages: 6,
+            armor: 4
+        }
+        let weaponChoice;
+        while (weaponChoice != "bois" && weaponChoice != "fer" && weaponChoice != "magique")
+            weaponChoice = prompt(`Quelle arme souhaitez-vous prendre ? ("bois", "fer" ou "magique")`);
+        if (weaponChoice == "bois") {
+            adventurer.damages = weapons.wood
+        }
+        if (weaponChoice == "fer") {
+            adventurer.damages = weapons.iron
+        }
+        if (weaponChoice == "magique") {
+            adventurer.damages = weapons.magic
+        }
+        let armorChoice;
+        while (armorChoice != "bois" && armorChoice != "fer" && armorChoice != "magique")
+            armorChoice = prompt(`Quelle armure souhaitez-vous prendre ? ("bois", "fer" ou "magique")`);
+        if (armorChoice == "bois") {
+            adventurer.armor = armors.wood
+        }
+        if (armorChoice == "fer") {
+            adventurer.armor = armors.iron
+        }
+        if (armorChoice == "magique") {
+            adventurer.armor = armors.magic
+        }
+        console.log("Le combat commence ! ");
+        attack();
+
+    </script>
+
+</body>
+
+</html>

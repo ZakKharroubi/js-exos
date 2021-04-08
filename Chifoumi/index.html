@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chifoumi</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        "use strict"
+
+
+        function comparer(player, ordi) {
+            if (player === ordi) {
+                return 'egalité';
+            } else if (player === 'pierre') {
+                if (ordi === 'ciseaux') {
+                    return 'player';
+                } else if (ordi === 'feuille') {
+                    return 'ordi';
+                }
+            } else if (player === 'feuille') {
+                if (ordi === 'pierre') {
+                    return 'player';
+                } else if (ordi === 'ciseaux') {
+                    return 'ordi';
+                }
+            } else if (player === 'ciseaux') {
+                if (ordi === 'pierre') {
+                    return 'ordi';
+                } else if (ordi === 'feuille') {
+                    return 'player';
+                }
+            }
+        }
+
+        let player = prompt("entrez pierre, feuille ou ciseaux");
+        if (player == "pierre" || player == "feuille" || player == "ciseaux") {
+            alert(`vous avez choisi ${player} , au tour de l'ordinateur de choisir`)
+        }
+        else {
+            alert("mot invalide");
+
+        }
+
+        let ordi = Math.random();
+        if (ordi < 0.34) {
+            ordi = `pierre`;
+        }
+
+        else if (ordi <= 0.67) {
+            ordi = `feuille`;
+        }
+        else {
+            ordi = `ciseaux`;
+        }
+
+        alert(`ordinateur: ${ordi}`);
+        let resultat = comparer(player, ordi);
+        alert(`gagnant : ${resultat}`);
+
+
+
+
+    </script>
+</body>
+
+</html>

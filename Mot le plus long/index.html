@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trouver le mot le plus long</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        let wordsToCompare = [
+            "Cucurbitacé",
+            "Landau",
+            "Chatons",
+            "Morceau",
+            "Gâteau",
+            "Pâtisserie"
+        ]
+        console.log(wordsToCompare);
+
+        function longestWord(wordsToCompare) {
+            let word = "";
+            for (let i = 0; i < wordsToCompare.length; i++) {
+                if (word.length < wordsToCompare[i].length) {
+                    word = wordsToCompare[i];
+                }
+            }
+            return word;
+        }
+        console.log(longestWord(wordsToCompare));
+
+        function shortestWord(wordsToCompare) {
+            let word2 = longestWord(wordsToCompare);
+            for (let i = 0; i < wordsToCompare.length; i++) {
+                if (wordsToCompare[i].length < word2.length) {
+                    word2 = wordsToCompare[i];
+                }
+            }
+            return word2;
+        }
+        console.log(shortestWord(wordsToCompare));
+
+    </script>
+</body>
+
+</html>

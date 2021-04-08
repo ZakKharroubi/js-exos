@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste de tâches</title>
+</head>
+<script type="text/javascript">
+    "use strict"
+
+    let taskList = [
+        "Manger",
+        "Bouger",
+        "Dormir",
+        "Jouer",
+        "Travailler"
+    ];
+
+
+    function showTasks(list) {
+        return console.log(list + ' soit ' + list.length + ' tâches.');
+    }
+
+
+
+    function addTask() {
+        let taskToAdd = prompt('Entrez la tâche que vous voulez ajouter à votre liste');
+        taskList.push(taskToAdd)
+        console.log('Votre tâche a bien été ajoutée');
+        return console.log(taskList);
+    }
+
+    function searchTask() {
+        let searchedTask = prompt(`Quelle tâche souhaitez vous rechercher ?`);
+        if (taskList.includes(searchedTask) == true) {
+            console.log("Cette tâche existe");
+        } else {
+            console.log("Cette tâche n'existe pas");
+        }
+    }
+
+    function deleteTask(n) {
+        let taskToDelete = prompt(`Quelle tâche souhaitez vous supprimer (Entrez le numéro de la tâche) ?`)
+        taskList.splice(taskToDelete);
+        console.log(`La tâche ${taskList[taskToDelete]} a été supprimée`)
+    }
+
+    function emptyTaskList() {
+        taskList = [];
+        console.log(`La liste des tâches a été vidée.`)
+    }
+
+    let userChoice = prompt(`Que voulez vous faire ? \n Pour consulter votre liste de tâches, entrez "liste". \n Pour ajouter une tâche, entrez "ajouter". \n Pour chercher une tâche, entrez "chercher". \n Pour supprimer une tâche, entrez "supprimer". \n Pour supprimer toutes les tâches, entrez "vider".`)
+
+    if (userChoice === "liste") {
+        showTasks(taskList);
+    }
+    if (userChoice === "ajouter") {
+        addTask();
+    }
+
+    if (userChoice === "chercher") {
+
+        searchTask();
+    }
+    if (userChoice === "supprimer") {
+        deleteTask();
+    }
+    if (userChoice === "vider") {
+        emptyTaskList();
+    }
+</script>
+
+<body>
+
+</body>
+
+</html>
